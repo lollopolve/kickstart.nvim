@@ -71,6 +71,9 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
+  -- Autoclose brackets
+  { 'm4xshen/autoclose.nvim', opts = {} },
+
   -- Fuzzy finder
   require("plugins.telescope"),
 
