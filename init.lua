@@ -28,7 +28,7 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim',    opts = {} },
 
   -- Set lualine as statusline
   -- See `:help lualine.txt`
@@ -68,14 +68,20 @@ require('lazy').setup({
     opts = {},
   },
 
+  -- Autocolse parethesis
+  { 'm4xshen/autoclose.nvim',  opts = {} },
+
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',   opts = {} },
+
+  -- File explorer
+  { 'nvim-tree/nvim-tree.lua', opts = {} },
 
   -- Autoclose brackets
   { 'm4xshen/autoclose.nvim', opts = {} },
 
   -- Fuzzy finder
-  require("plugins.telescope"),
+  require 'plugins.telescope',
 
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -121,7 +127,7 @@ require('lazy').setup({
   },
 
   -- Language Server Protocol
-  require('plugins.lsp'),
+  require 'plugins.lsp',
 
   -- Autocompletion
   {
@@ -149,7 +155,7 @@ require('lazy').setup({
   },
 
   -- Debug Adapter Protocol
-  require('plugins.dap'),
+  require 'plugins.dap',
 }, {})
 
 
@@ -300,7 +306,14 @@ require('mason-lspconfig').setup()
 local servers = {
   clangd = {},
   rust_analyzer = {},
-  gopls = {},
+  gopls = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
