@@ -10,6 +10,10 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '<C-k>', '<C-u>zz')
 vim.keymap.set('n', '<C-j>', '<C-d>zz')
 
+-- Remap start and end of code line
+vim.keymap.set('n', '<C-h>', '^')
+vim.keymap.set('n', '<C-l>', '$')
+
 -- Remap yank line
 vim.keymap.set('n', 'Y', 'yy')
 
