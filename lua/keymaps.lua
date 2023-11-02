@@ -14,6 +14,9 @@ vim.keymap.set('n', '<C-j>', '<C-d>zz')
 vim.keymap.set('n', '<C-h>', '^')
 vim.keymap.set('n', '<C-l>', '$')
 
+vim.keymap.set('n', 'cW', 'ciW')
+vim.keymap.set('n', 'cw', 'ciw')
+
 -- Remap yank line
 vim.keymap.set('n', 'Y', 'yy')
 
