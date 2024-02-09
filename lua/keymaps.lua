@@ -11,11 +11,8 @@ vim.keymap.set('n', '<C-k>', '<C-u>zz')
 vim.keymap.set('n', '<C-j>', '<C-d>zz')
 
 -- Remap start and end of code line
-vim.keymap.set('n', '<C-h>', '^')
-vim.keymap.set('n', '<C-l>', '$')
-
-vim.keymap.set('n', 'cW', 'ciW')
-vim.keymap.set('n', 'cw', 'ciw')
+vim.keymap.set({ 'n', 'v' }, '<C-h>', '^')
+vim.keymap.set({ 'n', 'v' }, '<C-l>', '$')
 
 -- Remap yank line
 vim.keymap.set('n', 'Y', 'yy')

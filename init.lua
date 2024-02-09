@@ -68,9 +68,6 @@ require('lazy').setup({
     opts = {},
   },
 
-  -- Autocolse parethesis
-  { 'm4xshen/autoclose.nvim',  opts = {} },
-
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim',   opts = {} },
 
@@ -78,7 +75,7 @@ require('lazy').setup({
   { 'nvim-tree/nvim-tree.lua', opts = {} },
 
   -- Autoclose brackets
-  { 'm4xshen/autoclose.nvim', opts = {} },
+  { 'm4xshen/autoclose.nvim',  opts = {} },
 
   -- Fuzzy finder
   require 'plugins.telescope',
@@ -156,7 +153,7 @@ require('lazy').setup({
 
   -- Debug Adapter Protocol
   require 'plugins.dap',
-}, {})
+})
 
 
 -- [[ Configure Treesitter ]]
@@ -164,12 +161,8 @@ require('lazy').setup({
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
-    -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
-
-    -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'rust', 'vimdoc', 'vim' },
     auto_install = false,
-
     highlight = { enable = true },
     indent = { enable = true },
     incremental_selection = {
