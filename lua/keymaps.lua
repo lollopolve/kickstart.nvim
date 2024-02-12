@@ -7,8 +7,8 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Remap half page step with center cursor
-vim.keymap.set('n', '<C-k>', '<C-u>zz')
-vim.keymap.set('n', '<C-j>', '<C-d>zz')
+vim.keymap.set('n', '<C-k>', '20kzz')
+vim.keymap.set('n', '<C-j>', '20jzz')
 
 -- Remap start and end of code line
 vim.keymap.set({ 'n', 'v' }, '<C-h>', '^')
