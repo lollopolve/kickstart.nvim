@@ -9,7 +9,7 @@ return {
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       -- NOTE: If you are having trouble with this installation,
-      --       refer to the README for telescope-fzf-native for more instructions.
+      -- refer to the README for telescope-fzf-native for more instructions.
       build = 'make',
       cond = function()
         return vim.fn.executable 'make' == 1
@@ -51,5 +51,23 @@ return {
     vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+
+    -- Slightly advanced example of overriding default behavior and theme
+    vim.keymap.set('n', '<leader>/', function()
+      -- You can pass additional configuration to telescope to change theme, layout, etc.
+      require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+      })
+    end, { desc = '[/] Fuzzily search in current buffer' })
+
+    -- Also possible to pass additional configuration options.
+    --  See `:help telescope.builtin.live_grep()` for information about particular pickers
+    vim.keymap.set('n', '<leader>s/', function()
+      require('telescope.builtin').live_grep {
+        grep_open_files = true,
+        prompt_title = 'Live Grep in Open Files',
+      }
+    end, { desc = '[S]earch [/] in Open Files' })
   end,
 }
