@@ -82,7 +82,13 @@ require('lazy').setup({
 		opts = {},
 	},
 
-	'mbbill/undotree',
+	{
+		'mbbill/undotree',
+		opts = {},
+		config = function()
+			vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "[U]ndo tree" })
+		end,
+	},
 
 	-- "gc" to comment visual regions/lines
 	{ 'numToStr/Comment.nvim', opts = {} },
