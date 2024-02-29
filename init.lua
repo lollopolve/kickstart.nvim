@@ -88,7 +88,7 @@ require('lazy').setup({
 	},
 
 	-- "gc" to comment visual regions/lines
-	{ 'numToStr/Comment.nvim',    opts = {} },
+	{ 'numToStr/Comment.nvim', opts = {} },
 
 	-- Autoclose brackets
 	{
@@ -98,7 +98,11 @@ require('lazy').setup({
 		},
 	},
 
-	{ 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+	{
+		'folke/todo-comments.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		opts = { signs = false },
+	},
 
 	-- Collection of various small independent plugins/modules
 	{
