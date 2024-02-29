@@ -88,7 +88,7 @@ require('lazy').setup({
 	},
 
 	-- "gc" to comment visual regions/lines
-	{ 'numToStr/Comment.nvim', opts = {} },
+	{ 'numToStr/Comment.nvim',    opts = {} },
 
 	-- Autoclose brackets
 	{
@@ -96,6 +96,26 @@ require('lazy').setup({
 		opts = {
 			disable_filetypes = { 'text', 'markdown' },
 		},
+	},
+
+	{ 'folke/todo-comments.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+
+	-- Collection of various small independent plugins/modules
+	{
+		'echasnovski/mini.nvim',
+		config = function()
+			require('mini.ai').setup { n_lines = 500 }
+
+			require('mini.surround').setup()
+
+			local statusline = require 'mini.statusline'
+			statusline.setup()
+
+			---@diagnostic disable-next-line: duplicate-set-field
+			statusline.section_location = function()
+				return ''
+			end
+		end,
 	},
 
 	{
