@@ -11,8 +11,8 @@ vim.keymap.set({ 'n', 'v' }, '<C-k>', '20kzz')
 vim.keymap.set({ 'n', 'v' }, '<C-j>', '20jzz')
 
 -- Remap start and end of code line
-vim.keymap.set({ 'n', 'v' }, '<C-h>', '^')
-vim.keymap.set({ 'n', 'v' }, '<C-l>', '$')
+vim.keymap.set({ 'n', 'v' }, '<C-h>', '<C-w>h')
+vim.keymap.set({ 'n', 'v' }, '<C-l>', '<C-w>l')
 
 -- Remap yank line
 vim.keymap.set('n', 'Y', 'yy')
@@ -28,12 +28,3 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- Highlight on yank
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-	group = highlight_group,
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-})
