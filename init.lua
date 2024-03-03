@@ -83,7 +83,7 @@ require('lazy').setup({
 		'mbbill/undotree',
 		opts = {},
 		config = function()
-			vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "[U]ndo tree" })
+			vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[U]ndo tree' })
 		end,
 	},
 
@@ -132,13 +132,17 @@ require('lazy').setup({
 	require 'plugins.telescope',
 
 	{
-		"NeogitOrg/neogit",
+		'kdheepak/lazygit.nvim',
 		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-			"nvim-telescope/telescope.nvim",
+			'nvim-lua/plenary.nvim',
 		},
-		config = true,
+		config = function()
+			local lazygit = require('lazygit')
+
+			vim.keymap.set('n', '<leader>gg', lazygit.lazygit, { desc = 'Open Lazy[G]it' })
+
+			require('telescope').load_extension('lazygit')
+		end
 	},
 
 	-- Adds git related signs to the gutter, as well as utilities for managing changes
