@@ -53,6 +53,7 @@ return {
 		vim.keymap.set('n', '<leader>sg', telescopefn.live_grep, { desc = '[S]earch by [G]rep' })
 		vim.keymap.set('n', '<leader>sd', telescopefn.diagnostics, { desc = '[S]earch [D]iagnostics' })
 		vim.keymap.set('n', '<leader>sr', telescopefn.resume, { desc = '[S]earch [R]esume' })
+		vim.keymap.set('n', '<leader>sm', telescopefn.marks, { desc = '[S]earch [M]arks' })
 
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set('n', '<leader>/', function()
