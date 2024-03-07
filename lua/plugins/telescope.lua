@@ -22,12 +22,15 @@ return {
 		require('telescope').setup {
 			defaults = {
 				mappings = {
-					i = {
-						['<C-u>'] = false,
-						['<C-d>'] = false,
-						['<C-n>'] = require('telescope.actions').move_selection_previous,
-						['<C-p>'] = require('telescope.actions').move_selection_next,
-					},
+					i = (function()
+						local actions = require('telescope.actions')
+						return {
+							['<C-u>'] = actions.git_reset_soft,
+							['<C-d>'] = actions.delete_buffer,
+							['<C-n>'] = actions.move_selection_previous,
+							['<C-p>'] = actions.move_selection_next,
+						}
+					end)(),
 				},
 			},
 		}
