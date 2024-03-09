@@ -12,10 +12,19 @@ return {
 		{ 'folke/neodev.nvim',                 opts = {} },
 	},
 	config = function()
+		local lspconfig = require('lspconfig')
+		lspconfig.zls.setup {
+			cmd = { '/usr/local/bin/zls', },
+			settings = {
+				zls = {
+					zig_exe_path = '/usr/local/zig/zig',
+				},
+			},
+		};
+
 		local servers = {
 			clangd = {},
 			rust_analyzer = {},
-			zls = {},
 			gopls = {
 				gopls = {
 					analyses = {
