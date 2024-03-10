@@ -12,19 +12,10 @@ return {
 		{ 'folke/neodev.nvim',                 opts = {} },
 	},
 	config = function()
-		local lspconfig = require('lspconfig')
-		lspconfig.zls.setup {
-			cmd = { '/usr/local/bin/zls', },
-			settings = {
-				zls = {
-					zig_exe_path = '/usr/local/zig/zig',
-				},
-			},
-		};
-
 		local servers = {
 			clangd = {},
 			rust_analyzer = {},
+			-- zls = {},
 			gopls = {
 				gopls = {
 					analyses = {
@@ -113,6 +104,17 @@ return {
 					filetypes = (servers[server_name] or {}).filetypes,
 				}
 			end,
+		}
+
+		-- using custom config for zls
+		require 'lspconfig'.zls.setup {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {
+				warn_style = true,
+				zig_exe_path = '/usr/local/zig/zig',
+				zig_lib_path = '/usr/local/zig/lib',
+			}
 		}
 
 		-- Go auto goimports
