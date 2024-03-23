@@ -41,6 +41,7 @@ return {
 					},
 				},
 			},
+			phpactor = {},
 			templ = { filetypes = { 'templ' } },
 			html = { filetypes = { 'html', 'twig' } },
 		}

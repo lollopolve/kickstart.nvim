@@ -91,12 +91,12 @@ require('lazy').setup({
 	{ 'numToStr/Comment.nvim', opts = {} },
 
 	-- Autoclose brackets
-	{
-		'm4xshen/autoclose.nvim',
-		opts = {
-			disable_filetypes = { 'text', 'markdown' },
-		},
-	},
+	-- {
+	-- 	'm4xshen/autoclose.nvim',
+	-- 	opts = {
+	-- 		disable_filetypes = { 'text', 'markdown' },
+	-- 	},
+	-- },
 
 	{
 		'folke/todo-comments.nvim',
