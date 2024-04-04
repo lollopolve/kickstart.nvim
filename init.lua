@@ -80,6 +80,12 @@ require('lazy').setup({
 	},
 
 	{
+		'stevearc/oil.nvim',
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
+	},
+
+	{
 		'mbbill/undotree',
 		opts = {},
 		config = function()
