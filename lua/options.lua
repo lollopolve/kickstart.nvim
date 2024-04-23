@@ -26,7 +26,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Sets how neovim will display certain whitespace in the editor
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!

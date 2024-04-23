@@ -113,8 +113,8 @@ return {
 			on_attach = on_attach,
 			settings = {
 				warn_style = true,
-				zig_exe_path = '/usr/local/zig/zig',
-				zig_lib_path = '/usr/local/zig/lib',
+				zig_exe_path = '/home/lollopolve/bin/zig/zig',
+				zig_lib_path = '/home/lollopolve/bin/zig/lib',
 			}
 		}
 
