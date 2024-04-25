@@ -25,6 +25,7 @@ return {
 					i = (function()
 						local actions = require('telescope.actions')
 						return {
+							['<Esc>'] = actions.close,
 							['<C-u>'] = actions.git_reset_soft,
 							['<C-d>'] = actions.delete_buffer,
 							['<C-n>'] = actions.move_selection_previous,
