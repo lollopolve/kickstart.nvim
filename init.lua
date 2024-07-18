@@ -28,16 +28,16 @@ require('lazy').setup({
 			local whichkey = require('which-key')
 
 			-- document existing key chains
-			whichkey.register {
-				['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-				['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-				['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-				['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-				['<leader>t'] = { name = '[T]oggle git action', _ = 'which_key_ignore' },
-				['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-				['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-				['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-			}
+			whichkey.add({
+				{ '<leader>c',    desc = '[C]ode' },
+				{ '<leader>d',    desc = '[D]ocument', },
+				{ '<leader>g',    desc = '[G]it', },
+				{ '<leader>h',    desc = 'Git [H]unk' },
+				{ '<leader>t',    desc = '[T]oggle git action' },
+				{ '<leader>r',    desc = '[R]ename' },
+				{ '<leader>s',    desc = '[S]earch' },
+				{ '<leader>w',    desc = '[W]orkspace' },
+			})
 		end
 	},
 
@@ -108,24 +108,6 @@ require('lazy').setup({
 		'folke/todo-comments.nvim',
 		dependencies = { 'nvim-lua/plenary.nvim' },
 		opts = { signs = false },
-	},
-
-	-- Collection of various small independent plugins/modules
-	{
-		'echasnovski/mini.nvim',
-		config = function()
-			require('mini.ai').setup { n_lines = 500 }
-
-			require('mini.surround').setup()
-
-			local statusline = require 'mini.statusline'
-			statusline.setup()
-
-			---@diagnostic disable-next-line: duplicate-set-field
-			statusline.section_location = function()
-				return ''
-			end
-		end,
 	},
 
 	{
