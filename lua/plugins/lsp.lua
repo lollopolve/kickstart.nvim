@@ -15,7 +15,11 @@ return {
 		local servers = {
 			clangd = {},
 			rust_analyzer = {},
-			-- zls = {},
+			zls = {
+				warn_style = true,
+				zig_lib_path = '/home/lollopolve/bin/zig/lib',
+				zig_exe_path = '/home/lollopolve/bin/zig/zig',
+			},
 			gopls = {
 				gopls = {
 					analyses = {
@@ -41,7 +45,6 @@ return {
 					},
 				},
 			},
-			phpactor = {},
 			templ = { filetypes = { 'templ' } },
 			html = { filetypes = { 'html', 'twig' } },
 		}
@@ -105,17 +108,6 @@ return {
 					filetypes = (servers[server_name] or {}).filetypes,
 				}
 			end,
-		}
-
-		-- using custom config for zls
-		require 'lspconfig'.zls.setup {
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				warn_style = true,
-				zig_exe_path = '/home/lollopolve/bin/zig/zig',
-				zig_lib_path = '/home/lollopolve/bin/zig/lib',
-			}
 		}
 
 		-- Go auto goimports
